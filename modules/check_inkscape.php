@@ -10,11 +10,10 @@ class PD_check_inkscape extends PD_check {
     private $meta_author = 'modmaster@patchday.net';
 
     public function check() {
-        $windows = file_get_contents('http://inkscape.org/en/download/windows/');
+        $windows = file_get_contents('https://inkscape.org/en/');
 
-        $version = $this->preg_match_singlearg('$<h2>Latest stable version: Inkscape ([\d\.]+)</h2>$', $windows);
-        //$download32 = $this->preg_match_singlearg('<a href="(http://downloads.sourceforge.net/inkscape/[^"]+)">', $windows);
-	$download32 = 'http://inkscape.org/en/download/windows/';
+        $version = $this->preg_match_singlearg('$Current stable version: ([\d\.]+)</span>$', $windows);
+	    $download32 = 'http://inkscape.org/en/download/windows/';
 
         if(!$version || !$download32) {
             $this->fail('inkscape Windows');
@@ -26,7 +25,5 @@ class PD_check_inkscape extends PD_check {
 
 $check = new PD_check_inkscape;
 $check->check();
-
-
 
 ?>
