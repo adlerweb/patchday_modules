@@ -13,7 +13,7 @@ class PD_check_gcc extends PD_check {
         $html = file_get_contents('http://gcc.gnu.org/');
     	$html = $this->strcrop($html, 'Releases</h2>', '</dl>');
 
-    	preg_match_all('/<dt><span class="version">.+?<\/span>/s', $html, $match);
+    	preg_match_all('/<dt><span class="version">.+?<\/a>/s', $html, $match);
 
     	$first = true;
     	foreach($match[0] as $ver) {
