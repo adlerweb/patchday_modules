@@ -17,7 +17,7 @@ class PD_check_mailstore extends PD_check {
 
 	$srv = 0;
 	for($i=0; $i<count($match[1]); $i++) {
-        if($match[1][$i] > $srv) $srv = $match[1][$i];
+        if(version_compare($match[1][$i], $srv, '>')) $srv = $match[1][$i];
 	}
 	$version = $srv;
 
