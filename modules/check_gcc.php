@@ -18,7 +18,6 @@ class PD_check_gcc extends PD_check {
     	$first = true;
     	foreach($match[0] as $ver) {
     		$vers = $this->preg_match_singlearg('!GCC ([\d\.]+)!', $ver);
-    		var_dump($ver);
     		if($first) {
     			$first = false;
     			$version_st = $vers;
