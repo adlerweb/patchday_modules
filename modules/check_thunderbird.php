@@ -11,9 +11,9 @@ class PD_check_thunderbird extends PD_check {
 
     public function check() {
         $windows = file_get_contents('https://www.mozilla.org/en-US/thunderbird/all.html');
-	
-        $version32 = $this->preg_match_singlearg('$"https://download.mozilla.org/\?product=thunderbird-([\d\.]+)(-SSL)?&amp;os=win&amp;lang=en-US"$', $windows);
-        $download32 = $this->preg_match_singlearg('$"(https://download.mozilla.org/\?product=thunderbird-[\d\.]+(-SSL)?&amp;os=win&amp;lang=en-US)"$', $windows);
+
+        $version32 = $this->preg_match_singlearg('$"https://download.mozilla.org/\?product=thunderbird-([\d\.]+)(-SSL)?&(amp;)?os=win&(amp;)?lang=en-US"$', $windows);
+        $download32 = $this->preg_match_singlearg('$"(https://download.mozilla.org/\?product=thunderbird-[\d\.]+(-SSL)?&(amp;)?os=win&(amp;)?lang=en-US)"$', $windows);
 
         if(!$version32 || !$download32) {
             $this->fail('Thunderbird Windows');
