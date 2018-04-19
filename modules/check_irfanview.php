@@ -6,7 +6,7 @@ require_once('../lib/check.php');
 
 class PD_check_IrfanView extends PD_check {
 
-    private $meta_module = '7Zip';
+    private $meta_module = 'IrfanView';
     private $meta_author = 'modmaster@patchday.net';
 
     public function check() {
