@@ -13,7 +13,7 @@ class PD_check_mailstore extends PD_check {
 	$windows = file_get_contents('https://my.mailstore.com/Downloads?lang=de');
 	$windows = 'obj = ['.$this->strcrop($windows, 'obj = [', '</script>');
 
-	preg_match_all('/\{\s+"version": "([\d\.]+)",.+?\s+"product": "Server"/s', $windows, $match);
+	preg_match_all('/\{\s+"version": "([\d\.]+)",.?\s+"product": "Server"/s', $windows, $match);
 
 	$srv = 0;
 	for($i=0; $i<count($match[1]); $i++) {
